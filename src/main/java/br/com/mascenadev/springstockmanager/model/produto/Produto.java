@@ -1,5 +1,6 @@
-package br.com.mascenadev.springstockmanager.model;
+package br.com.mascenadev.springstockmanager.model.produto;
 
+import br.com.mascenadev.springstockmanager.model.Fornecedor;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 
@@ -26,7 +27,7 @@ public class Produto {
 
     @NotNull(message = "O preço unitário do produto não pode ser nulo")
     @Column(nullable = false, precision = 10, scale = 2)
-    @PositiveOrZero(message = "O preço unitário do produto deve ser positivo")
+    @PositiveOrZero(message = "O preço unitário do produto deve ser positivo ou zero")
     private BigDecimal precoUnitario;
 
     @NotNull(message = "A quantidade em estoque do produto não pode ser nula")
