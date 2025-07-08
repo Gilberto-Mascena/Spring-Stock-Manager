@@ -1,6 +1,7 @@
 package br.com.mascenadev.springstockmanager.model;
 
 import br.com.mascenadev.springstockmanager.model.enums.TipoMovimentacao;
+import br.com.mascenadev.springstockmanager.model.produto.Produto;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
