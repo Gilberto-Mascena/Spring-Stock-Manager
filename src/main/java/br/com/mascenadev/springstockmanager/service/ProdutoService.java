@@ -1,5 +1,7 @@
 package br.com.mascenadev.springstockmanager.service;
 
+import br.com.mascenadev.springstockmanager.exception.FornecedorNaoEncontradoException;
+import br.com.mascenadev.springstockmanager.exception.ProdutoNaoEncontradoException;
 import br.com.mascenadev.springstockmanager.model.fornecedor.Fornecedor;
 import br.com.mascenadev.springstockmanager.model.produto.Produto;
 import br.com.mascenadev.springstockmanager.model.produto.dto.ProdutoRequestDTO;
@@ -29,7 +31,7 @@ public class ProdutoService {
         Produto produto = new Produto();
         BeanUtils.copyProperties(produtoRequestDTO, produto, "fornecedorId");
         Fornecedor fornecedor = fornecedorRepository.findById(produtoRequestDTO.getFornecedorId())
-                .orElseThrow(() -> new RuntimeException("Fornecedor não encontrado" + produtoRequestDTO.getFornecedorId()));
+                .orElseThrow(() -> new FornecedorNaoEncontradoException(produtoRequestDTO.getFornecedorId()));
         produto.setFornecedor(fornecedor);
         Produto produtoSalvo = repository.save(produto);
         return new ProdutoResponseDTO(produtoSalvo);
@@ -44,14 +46,14 @@ public class ProdutoService {
 
     public ProdutoResponseDTO findById(Long id) {
         Produto produto = repository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Produto não encontrado"));
+                .orElseThrow(() -> new ProdutoNaoEncontradoException(id));
         return new ProdutoResponseDTO(produto);
     }
 
     @Transactional
     public ProdutoResponseDTO update(Long id, ProdutoRequestDTO produtoRequestDTO) {
         Produto produto = repository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Produto não encontrado"));
+                .orElseThrow(() -> new ProdutoNaoEncontradoException(id));
 
         produto.setNome(produtoRequestDTO.getNome());
         produto.setDescricao(produtoRequestDTO.getDescricao());
@@ -60,7 +62,7 @@ public class ProdutoService {
 
         if (!produto.getFornecedor().getId().equals(produtoRequestDTO.getFornecedorId())) { // Verifica se o fornecedor mudou
             Fornecedor novoFornecedor = fornecedorRepository.findById(produtoRequestDTO.getFornecedorId())
-                    .orElseThrow(() -> new RuntimeException("Fornecedor não encontrado para o ID: " + produtoRequestDTO.getFornecedorId()));
+                    .orElseThrow(() -> new FornecedorNaoEncontradoException(produtoRequestDTO.getFornecedorId()));
             produto.setFornecedor(novoFornecedor);
 
         }
@@ -72,7 +74,7 @@ public class ProdutoService {
     @Transactional
     public void delete(Long id) {
         Produto produto = repository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Produto não encontrado para o ID: " + id)); // Mensagem mais específica
+                .orElseThrow(() -> new ProdutoNaoEncontradoException(id));
         repository.delete(produto);
     }
 }

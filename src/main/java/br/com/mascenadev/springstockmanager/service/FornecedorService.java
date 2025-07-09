@@ -1,5 +1,6 @@
 package br.com.mascenadev.springstockmanager.service;
 
+import br.com.mascenadev.springstockmanager.exception.FornecedorNaoEncontradoException;
 import br.com.mascenadev.springstockmanager.model.fornecedor.Fornecedor;
 import br.com.mascenadev.springstockmanager.model.fornecedor.dto.FornecedorRequestDTO;
 import br.com.mascenadev.springstockmanager.model.fornecedor.dto.FornecedorResponseDTO;
@@ -37,14 +38,14 @@ public class FornecedorService {
 
     public FornecedorResponseDTO findById(Long id) {
         Fornecedor fornecedor = fornecedorRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Fornecedor não encontrado para o ID: " + id));
+                .orElseThrow(() -> new FornecedorNaoEncontradoException(id));
         return new FornecedorResponseDTO(fornecedor);
     }
 
     @Transactional
     public FornecedorResponseDTO update(Long id, FornecedorRequestDTO fornecedorRequestDTO) {
         Fornecedor fornecedor = fornecedorRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Fornecedor não encontrado para o ID: " + id));
+                .orElseThrow(() -> new FornecedorNaoEncontradoException(id));
 
         BeanUtils.copyProperties(fornecedorRequestDTO, fornecedor, "id");
         Fornecedor fornecedorAtualizado = fornecedorRepository.save(fornecedor);
@@ -54,7 +55,7 @@ public class FornecedorService {
     @Transactional
     public void delete(Long id) {
         Fornecedor fornecedor = fornecedorRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Fornecedor não encontrado"));
+                .orElseThrow(() -> new FornecedorNaoEncontradoException(id));
         fornecedorRepository.delete(fornecedor);
     }
 }
