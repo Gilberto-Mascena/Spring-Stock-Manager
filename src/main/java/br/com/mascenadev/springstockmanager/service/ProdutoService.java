@@ -1,6 +1,6 @@
 package br.com.mascenadev.springstockmanager.service;
 
-import br.com.mascenadev.springstockmanager.model.Fornecedor;
+import br.com.mascenadev.springstockmanager.model.fornecedor.Fornecedor;
 import br.com.mascenadev.springstockmanager.model.produto.Produto;
 import br.com.mascenadev.springstockmanager.model.produto.dto.ProdutoRequestDTO;
 import br.com.mascenadev.springstockmanager.model.produto.dto.ProdutoResponseDTO;
