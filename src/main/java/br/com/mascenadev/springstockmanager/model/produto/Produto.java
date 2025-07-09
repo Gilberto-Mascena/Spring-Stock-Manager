@@ -1,6 +1,6 @@
 package br.com.mascenadev.springstockmanager.model.produto;
 
-import br.com.mascenadev.springstockmanager.model.Fornecedor;
+import br.com.mascenadev.springstockmanager.model.fornecedor.Fornecedor;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 

@@ -1,4 +1,4 @@
-package br.com.mascenadev.springstockmanager.model;
+package br.com.mascenadev.springstockmanager.model.movimentacao;
 
 import br.com.mascenadev.springstockmanager.model.enums.TipoMovimentacao;
 import br.com.mascenadev.springstockmanager.model.produto.Produto;

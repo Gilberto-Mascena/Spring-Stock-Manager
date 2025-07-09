@@ -1,4 +1,4 @@
-package br.com.mascenadev.springstockmanager.model;
+package br.com.mascenadev.springstockmanager.model.fornecedor;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
