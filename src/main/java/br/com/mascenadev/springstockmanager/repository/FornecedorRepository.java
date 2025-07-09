@@ -1,6 +1,6 @@
 package br.com.mascenadev.springstockmanager.repository;
 
-import br.com.mascenadev.springstockmanager.model.Fornecedor;
+import br.com.mascenadev.springstockmanager.model.fornecedor.Fornecedor;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
