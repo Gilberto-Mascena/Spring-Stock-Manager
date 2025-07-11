@@ -21,7 +21,7 @@ public class Fornecedor {
     private String nome;
 
     @NotBlank(message = "O CNPJ do fornecedor é obrigatório")
-    @Size(min = 14, max = 14, message = "O CNPJ do fornecedor deve ter exatamente 14 caracteres")
+    @Size(min = 18, max = 18, message = "O CNPJ do fornecedor deve ter exatamente 18 caracteres, incluindo pontos e traços")
     @Column(nullable = false, length = 14, unique = true)
     @Pattern(
             regexp = "\\d{2}\\.\\d{3}\\.\\d{3}/\\d{4}-\\d{2}",
