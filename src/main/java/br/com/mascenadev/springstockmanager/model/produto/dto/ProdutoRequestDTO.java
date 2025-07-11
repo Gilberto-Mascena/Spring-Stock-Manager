@@ -3,11 +3,8 @@ package br.com.mascenadev.springstockmanager.model.produto.dto;
 import jakarta.validation.constraints.*;
 
 import java.math.BigDecimal;
-import java.util.Objects;
 
 public class ProdutoRequestDTO {
-
-    private Long id;
 
     @NotBlank(message = "O nome do produto não pode estar em branco")
     @Size(min = 3, max = 255, message = "O nome do produto deve ter entre 3 e 255 caracteres")
@@ -31,21 +28,12 @@ public class ProdutoRequestDTO {
     public ProdutoRequestDTO() {
     }
 
-    public ProdutoRequestDTO(Long id, String nome, String descricao, BigDecimal precoUnitario, Integer quantidadeEmEstoque, Long fornecedorId) {
-        this.id = id;
+    public ProdutoRequestDTO(String nome, String descricao, BigDecimal precoUnitario, Integer quantidadeEmEstoque, Long fornecedorId) {
         this.nome = nome;
         this.descricao = descricao;
         this.precoUnitario = precoUnitario;
         this.quantidadeEmEstoque = quantidadeEmEstoque;
         this.fornecedorId = fornecedorId;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getNome() {
@@ -89,14 +77,13 @@ public class ProdutoRequestDTO {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
-        ProdutoRequestDTO that = (ProdutoRequestDTO) o;
-        return Objects.equals(id, that.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(id);
+    public String toString() {
+        return "ProdutoRequestDTO{" +
+               ", nome='" + nome + '\'' +
+               ", descricao='" + descricao + '\'' +
+               ", precoUnitario=" + precoUnitario +
+               ", quantidadeEmEstoque=" + quantidadeEmEstoque +
+               ", fornecedorId=" + fornecedorId +
+               '}';
     }
 }
