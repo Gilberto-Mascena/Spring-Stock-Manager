@@ -27,7 +27,7 @@ public class Movimentacao {
     private Integer quantidade;
 
     @Enumerated(EnumType.STRING)
-    private TipoMovimentacao tipo;
+    private TipoMovimentacao tipoMovimentacao;
 
     @NotNull(message = "A data e hora da movimentação não podem ser nulas")
     @Column(nullable = false)
@@ -37,11 +37,11 @@ public class Movimentacao {
         this.dataHora = LocalDateTime.now();
     }
 
-    public Movimentacao(Long id, Produto produto, Integer quantidade, TipoMovimentacao tipo, LocalDateTime dataHora) {
+    public Movimentacao(Long id, Produto produto, Integer quantidade, TipoMovimentacao tipoMovimentacao, LocalDateTime dataHora) {
         this.id = id;
         this.produto = produto;
         this.quantidade = quantidade;
-        this.tipo = tipo;
+        this.tipoMovimentacao = tipoMovimentacao;
         this.dataHora = dataHora;
     }
 
@@ -69,12 +69,12 @@ public class Movimentacao {
         this.quantidade = quantidade;
     }
 
-    public TipoMovimentacao getTipo() {
-        return tipo;
+    public TipoMovimentacao getTipoMovimentacao() {
+        return tipoMovimentacao;
     }
 
-    public void setTipo(TipoMovimentacao tipo) {
-        this.tipo = tipo;
+    public void setTipoMovimentacao(TipoMovimentacao tipoMovimentacao) {
+        this.tipoMovimentacao = tipoMovimentacao;
     }
 
     public LocalDateTime getDataHora() {
@@ -103,7 +103,7 @@ public class Movimentacao {
                "id=" + id +
                ", produto=" + produto +
                ", quantidade=" + quantidade +
-               ", tipo=" + tipo +
+               ", tipo=" + tipoMovimentacao +
                ", dataHora=" + dataHora +
                '}';
     }
