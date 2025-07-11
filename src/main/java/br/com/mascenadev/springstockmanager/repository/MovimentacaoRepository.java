@@ -14,5 +14,5 @@ public interface MovimentacaoRepository extends JpaRepository<Movimentacao, Long
 
     List<Movimentacao> findByDataHoraBetween(LocalDateTime inicio, LocalDateTime fim);
 
-    List<Movimentacao> findByTipo(TipoMovimentacao tipo);
+    List<Movimentacao> findByTipoMovimentacao(TipoMovimentacao tipoMovimentacao);
 }
