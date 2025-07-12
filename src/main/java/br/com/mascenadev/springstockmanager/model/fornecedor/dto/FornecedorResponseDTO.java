@@ -9,6 +9,18 @@ public class FornecedorResponseDTO {
     private final Long id;
     private final String nome;
     private final String cnpj;
+
+    private String formatCnpj(String cnpj) {
+        if (cnpj == null || cnpj.length() != 14) {
+            return cnpj;
+        }
+        return cnpj.substring(0, 2) + "." +
+               cnpj.substring(2, 5) + "." +
+               cnpj.substring(5, 8) + "/" +
+               cnpj.substring(8, 12) + "-" +
+               cnpj.substring(12, 14);
+    }
+
     private final String endereco;
     private final String telefone1;
     private final String telefone2;
@@ -16,7 +28,7 @@ public class FornecedorResponseDTO {
     public FornecedorResponseDTO(Fornecedor entity) {
         this.id = entity.getId();
         this.nome = entity.getNome();
-        this.cnpj = entity.getCnpj();
+        this.cnpj = formatCnpj(entity.getCnpj());
         this.endereco = entity.getEndereco();
         this.telefone1 = entity.getTelefone1();
         this.telefone2 = entity.getTelefone2();
