@@ -1,5 +1,6 @@
 package br.com.mascenadev.springstockmanager.service;
 
+import br.com.mascenadev.springstockmanager.exception.CnpjJaCadastradoException;
 import br.com.mascenadev.springstockmanager.exception.FornecedorNaoEncontradoException;
 import br.com.mascenadev.springstockmanager.model.fornecedor.Fornecedor;
 import br.com.mascenadev.springstockmanager.model.fornecedor.dto.FornecedorRequestDTO;
@@ -23,6 +24,9 @@ public class FornecedorService {
     @Transactional
     public FornecedorResponseDTO save(FornecedorRequestDTO fornecedorRequestDTO) {
 
+        if (fornecedorRepository.findByCnpj(fornecedorRequestDTO.getCnpj()).isPresent()) {
+            throw new CnpjJaCadastradoException(fornecedorRequestDTO.getCnpj());
+        }
         Fornecedor fornecedor = new Fornecedor();
         BeanUtils.copyProperties(fornecedorRequestDTO, fornecedor);
         Fornecedor fornecedorSalvo = fornecedorRepository.save(fornecedor);
@@ -44,6 +48,12 @@ public class FornecedorService {
 
     @Transactional
     public FornecedorResponseDTO update(Long id, FornecedorRequestDTO fornecedorRequestDTO) {
+        fornecedorRepository.findByCnpj(fornecedorRequestDTO.getCnpj())
+                .ifPresent(f -> {
+                    if (!f.getId().equals(id)) { // Se o CNPJ encontrado pertence a outro ID
+                        throw new CnpjJaCadastradoException(fornecedorRequestDTO.getCnpj());
+                    }
+                });
         Fornecedor fornecedor = fornecedorRepository.findById(id)
                 .orElseThrow(() -> new FornecedorNaoEncontradoException(id));
 
