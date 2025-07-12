@@ -52,6 +52,17 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(standardError);
     }
 
+    @ExceptionHandler(EstoqueInsuficienteException.class)
+    public ResponseEntity<StandardError> handleEstoqueInsuficienteException(EstoqueInsuficienteException ex) {
+        StandardError standardError = new StandardError(
+                LocalDateTime.now(),
+                HttpStatus.NOT_FOUND.value(),
+                "Estoque insuficiente",
+                ex.getMessage()
+        );
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(standardError);
+    }
+
     @ExceptionHandler(FornecedorNaoEncontradoException.class)
     public ResponseEntity<StandardError> handleFornecedorNaoEncontradoException(FornecedorNaoEncontradoException ex) {
         StandardError standardError = new StandardError(
