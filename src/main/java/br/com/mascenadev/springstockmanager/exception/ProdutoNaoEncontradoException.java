@@ -6,8 +6,8 @@ public class ProdutoNaoEncontradoException extends RuntimeException {
         super("Produto não encontrado");
     }
 
-    public ProdutoNaoEncontradoException(Long id) {
-        super("Produto não encontrado com o ID: " + id);
+    public ProdutoNaoEncontradoException(Long produtoId) {
+        super("Produto não encontrado com o ID: " + produtoId);
     }
 
     public ProdutoNaoEncontradoException(String nome) {
