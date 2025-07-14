@@ -4,6 +4,7 @@ import br.com.mascenadev.springstockmanager.model.movimentacao.dto.MovimentacaoR
 import br.com.mascenadev.springstockmanager.model.movimentacao.dto.MovimentacaoResponseDTO;
 import br.com.mascenadev.springstockmanager.service.MovimentacaoService;
 import br.com.mascenadev.springstockmanager.service.ProdutoService;
+import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -22,7 +23,7 @@ public class MovimentacaoController {
         this.produtoService = produtoService;
     }
 
-    // Sugestão de melhoria para o create
+    @Operation(summary = "Create a new movimentacao")
     @PostMapping("/movimentacoes")
     public ResponseEntity<MovimentacaoResponseDTO> create(@RequestBody @Valid MovimentacaoRequestDTO movimentacaoRequestDTO) {
         MovimentacaoResponseDTO movimentacaoResponseDTO = movimentacaoService.create(movimentacaoRequestDTO);
@@ -34,30 +35,35 @@ public class MovimentacaoController {
         return ResponseEntity.created(uri).body(movimentacaoResponseDTO);
     }
 
+    @Operation(summary = "Get all movimentacoes")
     @GetMapping("/movimentacoes")
     public ResponseEntity<List<MovimentacaoResponseDTO>> findAll() {
         List<MovimentacaoResponseDTO> movimentacoes = movimentacaoService.findAll();
         return ResponseEntity.ok(movimentacoes);
     }
 
+    @Operation(summary = "Get a movimentacao by ID")
     @GetMapping("/movimentacoes/{id}")
     public ResponseEntity<MovimentacaoResponseDTO> findById(@PathVariable Long id) {
         MovimentacaoResponseDTO movimentacao = movimentacaoService.findById(id);
         return ResponseEntity.ok(movimentacao);
     }
 
+    @Operation(summary = "Get movimentacoes by produto ID")
     @GetMapping("/movimentacoes/relatorio")
     public ResponseEntity<List<MovimentacaoResponseDTO>> findByProdutoId(@RequestParam Long produtoId) {
         List<MovimentacaoResponseDTO> movimentacoes = movimentacaoService.findByProdutoId(produtoId);
         return ResponseEntity.ok(movimentacoes);
     }
 
+    @Operation(summary = "Update a movimentacao by ID")
     @PutMapping("/movimentacoes/{id}")
     public ResponseEntity<MovimentacaoResponseDTO> update(@PathVariable Long id, @RequestBody @Valid MovimentacaoRequestDTO movimentacaoRequestDTO) {
         MovimentacaoResponseDTO updatedMovimentacao = movimentacaoService.update(id, movimentacaoRequestDTO);
         return ResponseEntity.ok(updatedMovimentacao);
     }
 
+    @Operation(summary = "Delete a movimentacao by ID")
     @DeleteMapping("/movimentacoes/{id}")
     public ResponseEntity<Void> deleteById(@PathVariable Long id) {
         movimentacaoService.deleteById(id);
