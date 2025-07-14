@@ -1,3 +1,9 @@
+# Config Open api version
+springdoc:
+  api:
+    version: 1.0.0
+
+# Config database connection
 spring:
   datasource:
     url: jdbc:h2:mem:devdb
@@ -17,5 +23,5 @@ spring:
     properties:
       hibernate:
         format-sql: true # Formata SQL para legibilidade
-        use-sql-comments: true # Adiciona comentários para legibilidade
+        use-sql-comments: true # Adiciona comentï¿½rios para legibilidade
         dialect: org.hibernate.dialect.H2Dialect # Ou org.hibernate.dialect.PostgreSQLDialect
