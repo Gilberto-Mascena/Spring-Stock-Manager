@@ -1,0 +1,486 @@
+{
+  "info": {
+    "_postman_id": "c1a2b3c4-d5e6-7890-1234-567890abcdef",
+    "name": "Spring Stock Manager",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "Coleção de requisições para a API Spring Stock Manager, gerenciando fornecedores, produtos e movimentações de estoque."
+  },
+  "variables": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080",
+      "type": "string",
+      "description": "URL base da aplicação Spring Stock Manager."
+    },
+    {
+      "key": "h2ConsoleUrl",
+      "value": "http://localhost:8080/h2-console",
+      "type": "string",
+      "description": "URL para o console do H2."
+    }
+  ],
+  "item": [
+    {
+      "name": "Fornecedores",
+      "description": "Operações relacionadas a Fornecedores.",
+      "item": [
+        {
+          "name": "Criar Fornecedor",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"nome\": \"Fornecedor ABC\",\n    \"cnpj\": \"12.345.678/0001-90\",\n    \"email\": \"contato@fornecedorabc.com\",\n    \"telefone\": \"(11) 98765-4321\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/fornecedores",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fornecedores"
+              ]
+            },
+            "description": "Cria um novo fornecedor no sistema."
+          },
+          "response": []
+        },
+        {
+          "name": "Listar Todos os Fornecedores",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/fornecedores",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fornecedores"
+              ]
+            },
+            "description": "Retorna uma lista de todos os fornecedores cadastrados."
+          },
+          "response": []
+        },
+        {
+          "name": "Buscar Fornecedor por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/fornecedores/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fornecedores",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1",
+                  "description": "ID do fornecedor a ser buscado."
+                }
+              ]
+            },
+            "description": "Retorna os detalhes de um fornecedor específico pelo seu ID."
+          },
+          "response": []
+        },
+        {
+          "name": "Atualizar Fornecedor",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"nome\": \"Fornecedor ABC Atualizado\",\n    \"cnpj\": \"12.345.678/0001-90\",\n    \"email\": \"novo.contato@fornecedorabc.com\",\n    \"telefone\": \"(11) 99999-8888\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/fornecedores/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fornecedores",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1",
+                  "description": "ID do fornecedor a ser atualizado."
+                }
+              ]
+            },
+            "description": "Atualiza os dados de um fornecedor existente pelo seu ID."
+          },
+          "response": []
+        },
+        {
+          "name": "Deletar Fornecedor",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/fornecedores/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fornecedores",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1",
+                  "description": "ID do fornecedor a ser deletado."
+                }
+              ]
+            },
+            "description": "Deleta um fornecedor do sistema pelo seu ID."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Produtos",
+      "description": "Operações relacionadas a Produtos.",
+      "item": [
+        {
+          "name": "Criar Produto",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"nome\": \"Teclado Mecânico\",\n    \"descricao\": \"Teclado gamer RGB com switches azuis.\",\n    \"precoUnitario\": 250.00,\n    \"quantidadeEmEstoque\": 100,\n    \"fornecedorId\": 1\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/produtos",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "produtos"
+              ]
+            },
+            "description": "Cria um novo produto no sistema."
+          },
+          "response": []
+        },
+        {
+          "name": "Listar Todos os Produtos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/produtos",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "produtos"
+              ]
+            },
+            "description": "Retorna uma lista de todos os produtos cadastrados."
+          },
+          "response": []
+        },
+        {
+          "name": "Buscar Produto por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/produtos/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "produtos",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1",
+                  "description": "ID do produto a ser buscado."
+                }
+              ]
+            },
+            "description": "Retorna os detalhes de um produto específico pelo seu ID."
+          },
+          "response": []
+        },
+        {
+          "name": "Atualizar Produto",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"nome\": \"Teclado Mecânico RGB Pro\",\n    \"descricao\": \"Teclado gamer RGB com switches azuis e layout ABNT2.\",\n    \"precoUnitario\": 280.00,\n    \"quantidadeEmEstoque\": 95,\n    \"fornecedorId\": 1\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/produtos/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "produtos",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1",
+                  "description": "ID do produto a ser atualizado."
+                }
+              ]
+            },
+            "description": "Atualiza os dados de um produto existente pelo seu ID."
+          },
+          "response": []
+        },
+        {
+          "name": "Deletar Produto",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/produtos/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "produtos",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1",
+                  "description": "ID do produto a ser deletado."
+                }
+              ]
+            },
+            "description": "Deleta um produto do sistema pelo seu ID."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Movimentações",
+      "description": "Operações relacionadas a Movimentações de Estoque.",
+      "item": [
+        {
+          "name": "Criar Movimentação (Entrada/Saída)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"produtoId\": 1,\n    \"quantidade\": 5,\n    \"tipo\": \"ENTRADA\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/movimentacoes",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "movimentacoes"
+              ]
+            },
+            "description": "Cria uma nova movimentação de estoque (entrada ou saída) para um produto. Altere 'tipo' para 'SAIDA' para registrar uma saída."
+          },
+          "response": []
+        },
+        {
+          "name": "Listar Todas as Movimentações",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/movimentacoes",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "movimentacoes"
+              ]
+            },
+            "description": "Retorna uma lista de todas as movimentações de estoque registradas."
+          },
+          "response": []
+        },
+        {
+          "name": "Buscar Movimentação por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/movimentacoes/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "movimentacoes",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1",
+                  "description": "ID da movimentação a ser buscada."
+                }
+              ]
+            },
+            "description": "Retorna os detalhes de uma movimentação específica pelo seu ID."
+          },
+          "response": []
+        },
+        {
+          "name": "Relatório de Movimentações por Produto",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/movimentacoes/relatorio?produtoId=:produtoId",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "movimentacoes",
+                "relatorio"
+              ],
+              "query": [
+                {
+                  "key": "produtoId",
+                  "value": "1",
+                  "description": "ID do produto para filtrar as movimentações."
+                }
+              ],
+              "variable": []
+            },
+            "description": "Retorna todas as movimentações de estoque para um produto específico, usando o ID do produto como parâmetro de query."
+          },
+          "response": []
+        },
+        {
+          "name": "Atualizar Movimentação",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"produtoId\": 1,\n    \"quantidade\": 7,\n    \"tipo\": \"ENTRADA\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/movimentacoes/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "movimentacoes",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1",
+                  "description": "ID da movimentação a ser atualizada."
+                }
+              ]
+            },
+            "description": "Atualiza os dados de uma movimentação de estoque existente pelo seu ID."
+          },
+          "response": []
+        },
+        {
+          "name": "Deletar Movimentação",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/movimentacoes/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "movimentacoes",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1",
+                  "description": "ID da movimentação a ser deletada."
+                }
+              ]
+            },
+            "description": "Deleta uma movimentação de estoque do sistema pelo seu ID."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "H2 Console",
+      "description": "Acesso ao console do banco de dados H2.",
+      "item": [
+        {
+          "name": "Abrir H2 Console",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{h2ConsoleUrl}}",
+              "host": [
+                "{{h2ConsoleUrl}}"
+              ]
+            },
+            "description": "Abre a interface web do console do H2. Use as credenciais configuradas em `application.yml` (usuário: sa, senha: ) para logar."
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
