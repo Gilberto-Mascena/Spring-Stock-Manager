@@ -1,7 +1,7 @@
 # Spring Stock Manager
 
-[English](https://github.com/Gilberto-Mascena/projeto-agenda-spring-boot/blob/main/README.md) |
-[Português Brasileiro](https://github.com/Gilberto-Mascena/projeto-agenda-spring-boot/blob/main/README-pt_br.md)
+[English](https://github.com/Gilberto-Mascena/Spring-Stock-Manager/blob/main/README.md) |
+[Português Brasileiro](https://github.com/Gilberto-Mascena/Spring-Stock-Manager/blob/main/README-pt_br.md)
 
 [![Status de Manutenção](https://img.shields.io/badge/Maintained-Yes-brightgreen?style=for-the-badge)](https://github.com/Gilberto-Mascena/Spring-Stock-Manager)
 [![GitHub Actions Status](https://img.shields.io/github/actions/workflow/status/Gilberto-Mascena/Spring-Stock-Manager/build.yml?style=for-the-badge)](https://github.com/Gilberto-Mascena/desafio-back-end-jr/actions)
