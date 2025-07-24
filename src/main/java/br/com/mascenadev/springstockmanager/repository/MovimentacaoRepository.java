@@ -1,7 +1,7 @@
 package br.com.mascenadev.springstockmanager.repository;
 
-import br.com.mascenadev.springstockmanager.model.movimentacao.Movimentacao;
 import br.com.mascenadev.springstockmanager.model.enums.TipoMovimentacao;
+import br.com.mascenadev.springstockmanager.model.movimentacao.Movimentacao;
 import br.com.mascenadev.springstockmanager.model.produto.Produto;
 import org.springframework.data.jpa.repository.JpaRepository;
 

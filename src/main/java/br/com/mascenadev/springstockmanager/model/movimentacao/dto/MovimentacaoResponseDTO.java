@@ -10,7 +10,7 @@ import java.util.Objects;
 public class MovimentacaoResponseDTO {
 
     private final Long id;
-    private final ProdutoResponseDTO produto; // Adicionado: para incluir os detalhes do produto
+    private final ProdutoResponseDTO produto;
     private final Integer quantidade;
     private final TipoMovimentacao tipoMovimentacao;
     private final LocalDateTime dataHora;
