@@ -2,21 +2,21 @@
 
 [Português Brasileiro](https://github.com/Gilberto-Mascena/Spring-Stock-Manager/blob/main/README-pt_br.md) | [English](https://github.com/Gilberto-Mascena/Spring-Stock-Manager/blob/main/README.md) 
 
-[![Status de Manutenção](https://img.shields.io/badge/Maintained-Yes-brightgreen?style=for-the-badge)](https://github.com/Gilberto-Mascena/Spring-Stock-Manager)
+<!--[![Status de Manutenção](https://img.shields.io/badge/Maintained-Yes-brightgreen?style=for-the-badge)](https://github.com/Gilberto-Mascena/Spring-Stock-Manager)
 [![GitHub Actions Status](https://img.shields.io/github/actions/workflow/status/Gilberto-Mascena/Spring-Stock-Manager/build.yml?style=for-the-badge)](https://github.com/Gilberto-Mascena/desafio-back-end-jr/actions)
 [![Licença](https://img.shields.io/github/license/Gilberto-Mascena/Spring-Stock-Manager?style=for-the-badge)](https://github.com/Gilberto-Mascena/Spring-Stock-Manager/blob/main/LICENSE.md)
 [![Estrelas no GitHub](https://img.shields.io/github/stars/Gilberto-Mascena/Spring-Stock-Manager?style=for-the-badge)](https://github.com/Gilberto-Mascena/Spring-Stock-Manager/stargazers)
 [![Problemas no GitHub](https://img.shields.io/github/issues/Gilberto-Mascena/Spring-Stock-Manager?style=for-the-badge)](https://github.com/Gilberto-Mascena/Spring-Stock-Manager/issues)
 [![Versão do Repositório](https://img.shields.io/github/v/release/Gilberto-Mascena/Spring-Stock-Manager?include_prereleases&style=for-the-badge)](https://github.com/Gilberto-Mascena/Spring-Stock-Manager/releases)
 ![Data de Lançamento](https://img.shields.io/github/release-date/Gilberto-Mascena/Spring-Stock-Manager?style=for-the-badge)
-![Tamanho do Repositório](https://img.shields.io/github/repo-size/Gilberto-Mascena/Spring-Stock-Manager?style=for-the-badge)
+![Tamanho do Repositório](https://img.shields.io/github/repo-size/Gilberto-Mascena/Spring-Stock-Manager?style=for-the-badge)-->
 
 
 ---
 
 ## Descrição do Projeto
 
-O **Spring Stock Manager** é uma API RESTful desenvolvida com Spring Boot 3.3.1, projetada para gerenciar o estoque de produtos, fornecedores e movimentações (entradas e saídas) de forma eficiente. O projeto segue os princípios de design de APIs REST e conta com validação de dados, tratamento global de exceções e documentação automática via Swagger UI (SpringDoc OpenAPI).
+O **Spring Stock Manager** é uma API RESTful desenvolvida com Spring Boot 3.5.3, projetada para gerenciar o estoque de produtos, fornecedores e movimentações (entradas e saídas) de forma eficiente. O projeto segue os princípios de design de APIs REST e conta com validação de dados, tratamento global de exceções e documentação automática via Swagger UI (SpringDoc OpenAPI).
 
 ## Funcionalidades
 
@@ -145,7 +145,7 @@ Certifique-se de ter as seguintes ferramentas instaladas:
 
 1.  **Clone o repositório:**
 ```bash
-    git clone [https://github.com/seu-usuario/spring-stock-manager.git](https://github.com/seu-usuario/spring-stock-manager.git) # Substitua pelo seu link do GitHub
+    git clone git@github.com:Gilberto-Mascena/Spring-Stock-Manager.git
     cd spring-stock-manager
 ```
 2.  **Compile o projeto com Maven:**
