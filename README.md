@@ -43,7 +43,7 @@
 ## Technologies Used
 
 * **Java 17**: Programming language.
-* **Spring Boot 3.3.1**: Framework for rapid API development.
+* **Spring Boot 3.5.3**: Framework for rapid API development.
 * **Spring Data JPA**: Abstraction for data persistence.
 * **Hibernate**: Implementation of the JPA specification.
 * H2 Database (Memory): In-memory database for development and testing.

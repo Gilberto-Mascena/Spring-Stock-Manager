@@ -44,7 +44,7 @@ O **Spring Stock Manager** é uma API RESTful desenvolvida com Spring Boot 3.5.3
 ## Tecnologias Utilizadas
 
 * **Java 17**: Linguagem de programação.
-* **Spring Boot 3.3.1**: Framework para desenvolvimento rápido de APIs.
+* **Spring Boot 3.5.3**: Framework para desenvolvimento rápido de APIs.
 * **Spring Data JPA**: Abstração para persistência de dados.
 * **Hibernate**: Implementação da especificação JPA.
 * **H2 Database (Memória)**: Banco de dados em memória para desenvolvimento e testes.
